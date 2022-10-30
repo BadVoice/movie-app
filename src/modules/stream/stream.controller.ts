@@ -68,7 +68,7 @@ interface ErrorWithStatus extends Error {
 }
 
 router.get(
-  'stream/:magnet/:filename', 
+  '/:magnet/:filename', 
   (req: StreamRequest, res: Response, next: NextFunction) => {
 
   const { 
@@ -87,7 +87,7 @@ router.get(
 
     for (let i =0; i < torrentFile.files.length; i++) {
         const currentTorrentPiece = torrentFile.files[i]
-        if (currentTorrentPiece.name == fileName) {
+        if (currentTorrentPiece.name === fileName) {
             file = currentTorrentPiece
         }
     }
